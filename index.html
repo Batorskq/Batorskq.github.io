@@ -35,19 +35,22 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1rem 2.5rem;
-      background: var(--bg);
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 16px rgba(0,0,0,0.04);
     }
     .nav-logo { font-weight: 700; font-size: 1rem; color: var(--text); text-decoration: none; }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
 
     /* ── HERO ── */
     .hero {
       position: relative;
       text-align: center;
-      padding: 5rem 2rem 4rem;
+      padding: 5rem 2rem 4.5rem;
       background: linear-gradient(160deg, #dce9fd 0%, #c5d5f0 100%);
       overflow: hidden;
     }
@@ -66,8 +69,14 @@
       margin: 0 auto;
     }
     .hero-tag {
-      font-size: .88rem; font-weight: 500; color: #4a6fa5;
-      margin-top: .5rem; letter-spacing: .02em;
+      display: inline-block;
+      font-size: .82rem; font-weight: 600; color: #3b5fa0;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.2);
+      border-radius: 20px;
+      padding: .3rem 1rem;
+      margin-top: .75rem;
+      letter-spacing: .02em;
     }
     h1 {
       font-family: 'Playfair Display', serif;
@@ -85,23 +94,24 @@
       font-size: .88rem; font-weight: 500; text-decoration: none;
       border: 1px solid rgba(0,0,0,0.13); color: var(--accent);
       background: white;
+      transition: all .2s;
     }
-    .btn:hover { background: #eef2ff; border-color: var(--accent); }
-    .btn-primary {
-      background: var(--accent); color: white; border-color: var(--accent);
-    }
+    .btn:hover { background: #eef2ff; border-color: var(--accent); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(37,99,235,0.12); }
+    .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
     .btn-primary:hover { background: #1d4ed8; color: white; }
 
     .avatar-wrap {
-      width: 190px; height: 190px; flex-shrink: 0;
+      width: 192px; height: 192px; flex-shrink: 0;
       border-radius: 50%;
-      border: 4px solid white;
-      box-shadow: 0 4px 24px rgba(37,99,235,0.15);
+      padding: 3px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      box-shadow: 0 8px 32px rgba(37,99,235,0.22);
       overflow: hidden;
       margin: 2rem 0 1.5rem;
     }
     .avatar-wrap img {
       width: 100%; height: 100%; object-fit: cover;
+      border-radius: 50%;
     }
 
     /* ── SECTION ── */
@@ -113,36 +123,73 @@
     }
     h2::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
+    /* ── RESEARCH INTERESTS ── */
+    .research-grid { display: flex; flex-direction: column; gap: .55rem; margin-top: .8rem; max-width: 620px; }
+    .research-item {
+      display: flex; align-items: flex-start; gap: .85rem;
+      padding: .8rem 1.1rem;
+      background: var(--surface);
+      border-radius: 9px;
+      border-left: 3px solid var(--accent2);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .research-item:hover { transform: translateX(3px); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .research-icon { font-size: 1.05rem; flex-shrink: 0; line-height: 1.6; }
+    .research-item strong { color: var(--text); font-weight: 600; font-size: .94rem; display: block; line-height: 1.4; }
+    .research-item p { color: var(--muted); font-size: .81rem; margin-top: .1rem; }
+
     /* ── PUBLICATIONS ── */
     .pub-list { display: flex; flex-direction: column; }
-    .pub-card { padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+    .pub-card {
+      padding: 1.4rem .6rem;
+      border-bottom: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 0 -.6rem;
+      transition: background .15s, box-shadow .15s, transform .15s;
+    }
     .pub-card:first-child { border-top: 1px solid var(--border); }
-    .pub-title { font-size: .97rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; line-height: 1.4; }
-    .pub-authors { font-size: .82rem; color: var(--muted); margin-bottom: .2rem; }
-    .pub-authors .me { color: var(--text); font-weight: 500; }
+    .pub-card:hover { background: var(--surface); box-shadow: 0 2px 12px rgba(0,0,0,0.05); transform: translateX(3px); }
+    .pub-title { font-size: .97rem; font-weight: 600; color: var(--text); margin-bottom: .35rem; line-height: 1.45; }
+    .pub-authors { font-size: .82rem; color: var(--muted); margin-bottom: .3rem; }
+    .pub-authors .me { color: var(--text); font-weight: 600; }
     .pub-venue { font-size: .8rem; color: var(--muted); }
-    .pub-venue .venue-name { color: var(--accent2); font-weight: 500; }
+    .pub-venue .venue-name {
+      color: var(--accent2); font-weight: 600;
+      background: rgba(124,58,237,0.08);
+      padding: .1rem .45rem;
+      border-radius: 4px;
+    }
     .pub-btn {
       display: inline-flex; align-items: center; gap: .3rem;
-      margin-top: .55rem;
+      margin-top: .6rem;
       font-size: .75rem; font-weight: 500; text-decoration: none;
       color: var(--accent);
       background: rgba(37,99,235,0.06);
       border: 1px solid rgba(37,99,235,0.2);
       border-radius: 5px;
-      padding: .2rem .65rem;
+      padding: .22rem .7rem;
+      transition: all .15s;
     }
-    .pub-btn:hover { background: rgba(37,99,235,0.12); border-color: var(--accent); }
+    .pub-btn:hover { background: rgba(37,99,235,0.14); border-color: var(--accent); transform: translateY(-1px); }
 
     /* ── TIMELINE ── */
     .timeline { position: relative; display: flex; flex-direction: column; padding-left: 1.75rem; margin-left: .25rem; }
-    .timeline::before { content: ''; position: absolute; left: 0; top: 7px; bottom: 0; width: 2px; background: var(--border); }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 7px; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), var(--border)); }
     .tl-item { position: relative; padding-bottom: 2rem; }
     .tl-item:last-child { padding-bottom: 0; }
-    .tl-item::before { content: ''; position: absolute; left: -1.75rem; margin-left: -4px; top: .4rem; width: 10px; height: 10px; border-radius: 50%; background: white; border: 2px solid var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.08); }
+    .tl-item::before { content: ''; position: absolute; left: -1.75rem; margin-left: -4px; top: .4rem; width: 10px; height: 10px; border-radius: 50%; background: white; border: 2px solid var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
     .tl-date { font-size: .78rem; font-weight: 600; color: var(--accent); margin-bottom: .2rem; letter-spacing: .01em; }
     .tl-title { font-size: .97rem; font-weight: 600; color: var(--text); }
     .tl-sub { font-size: .83rem; color: var(--muted); margin-top: .2rem; line-height: 1.55; }
+    .tech-tags { margin-top: .45rem; display: flex; flex-wrap: wrap; gap: .3rem; }
+    .tech-tag {
+      font-size: .72rem; font-weight: 500;
+      padding: .1rem .55rem;
+      background: rgba(37,99,235,0.06);
+      border: 1px solid rgba(37,99,235,0.15);
+      border-radius: 4px;
+      color: var(--accent);
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -150,12 +197,12 @@
       padding: 2rem; text-align: center;
       color: var(--muted); font-size: .82rem; max-width: 780px; margin: 0 auto;
     }
-    footer a { color: var(--muted); text-decoration: none; }
+    footer a { color: var(--muted); text-decoration: none; transition: color .2s; }
     footer a:hover { color: var(--text); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .avatar-wrap { width: 150px; height: 150px; }
+      .avatar-wrap { width: 154px; height: 154px; }
       nav { padding: 1rem 1.25rem; }
       .nav-links { gap: 1.2rem; }
     }
@@ -210,11 +257,29 @@
     <p style="color: var(--muted); font-size: 1rem; max-width: 620px;">
       My main research interests include, but are not limited to:
     </p>
-    <ul style="color: var(--muted); font-size: 1rem; max-width: 620px; margin-top: .6rem; padding-left: 1.4rem; line-height: 1.9;">
-      <li><strong style="color: var(--text);">Improving LLMs without retraining</strong> (e.g. prompt engineering and efficient inference-time methods)</li>
-      <li><strong style="color: var(--text);">Reinforcement learning for LLMs</strong> (training models to follow instructions and improve reasoning via RL)</li>
-      <li><strong style="color: var(--text);">Machine unlearning</strong> (selectively removing knowledge from a model after training)</li>
-    </ul>
+    <div class="research-grid">
+      <div class="research-item">
+        <span class="research-icon">⚡</span>
+        <div>
+          <strong>Improving LLMs without retraining</strong>
+          <p>e.g. prompt engineering and efficient inference-time methods</p>
+        </div>
+      </div>
+      <div class="research-item">
+        <span class="research-icon">🎯</span>
+        <div>
+          <strong>Reinforcement learning for LLMs</strong>
+          <p>training models to follow instructions and improve reasoning via RL</p>
+        </div>
+      </div>
+      <div class="research-item">
+        <span class="research-icon">🧹</span>
+        <div>
+          <strong>Machine unlearning</strong>
+          <p>selectively removing knowledge from a model after training</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- PUBLICATIONS -->
@@ -283,8 +348,6 @@
         </a>
       </div>
 
-
-
       <div class="pub-card">
         <div class="pub-title">PIAST: Rapid Prompting with In-context Augmentation for Scarce Training Data</div>
         <div class="pub-authors"><span class="me">P. Batorski</span>, P. Swoboda</div>
@@ -294,8 +357,6 @@
           Paper
         </a>
       </div>
-
-
 
       <div class="pub-card">
         <div class="pub-title">NSA: Neuro-symbolic ARC Challenge</div>
@@ -307,7 +368,7 @@
         </a>
       </div>
 
-            <div class="pub-card">
+      <div class="pub-card">
         <div class="pub-title">GPS: General Per-Sample Prompter</div>
         <div class="pub-authors"><span class="me">P. Batorski</span>, P. Swoboda</div>
         <div class="pub-venue">arXiv · 2025</div>
@@ -317,7 +378,7 @@
         </a>
       </div>
 
-            <div class="pub-card">
+      <div class="pub-card">
         <div class="pub-title">PRL: Prompts from Reinforcement Learning</div>
         <div class="pub-authors"><span class="me">P. Batorski</span>, A. Kosmala, P. Swoboda</div>
         <div class="pub-venue">arXiv · 2025</div>
@@ -412,7 +473,11 @@
         <div>
           <div class="tl-title">Junior Data Scientist · QuantUp</div>
           <div class="tl-sub">Contributed to three computer vision projects, one LLM project, and one tabular ML project. Responsible for data preprocessing, modeling, researching optimal solutions, and client-facing presentations.</div>
-          <div class="tl-sub" style="margin-top:.3rem;">Python, GitHub, AWS</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">GitHub</span>
+            <span class="tech-tag">AWS</span>
+          </div>
         </div>
       </div>
 
@@ -420,8 +485,11 @@
         <div class="tl-date">Jul 2022 – Sep 2022</div>
         <div>
           <div class="tl-title">Data Scientist Intern · NorthGravity</div>
-          <div class="tl-sub">Built reusable ML pipelines for time-series forecasting; delivered end-to-end forecasting solutions.</div>
-          <div class="tl-sub" style="margin-top:.3rem;">Python, Bitbucket</div>
+          <div class="tl-sub">Built reusable ML pipelines for time-series forecasting and delivered end-to-end forecasting solutions.</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Bitbucket</span>
+          </div>
         </div>
       </div>
 
@@ -430,7 +498,11 @@
         <div>
           <div class="tl-title">Quantitative Risk Intern · UBS</div>
           <div class="tl-sub">Developed a comprehensive R package from scratch for time-series forecasting (utilities for model developers, documentation, unit tests). Presented findings to the team via technical talks.</div>
-          <div class="tl-sub" style="margin-top:.3rem;">R, RStudio, GitHub</div>
+          <div class="tech-tags">
+            <span class="tech-tag">R</span>
+            <span class="tech-tag">RStudio</span>
+            <span class="tech-tag">GitHub</span>
+          </div>
         </div>
       </div>
 
