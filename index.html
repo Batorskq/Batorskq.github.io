@@ -360,6 +360,60 @@
     <div class="pub-list">
 
       <div class="pub-card">
+        <a class="pub-thumb" href="https://arxiv.org/abs/2603.21373" target="_blank" rel="noopener" aria-label="PLR: Plackett-Luce for Reordering In-Context Learning Examples – paper">
+          <img src="img/plr.png" alt="PLR: orderings of in-context examples are sampled from a Plackett-Luce distribution with the Gumbel trick, scored by accuracy, and the top-K are used to update the distribution" loading="lazy" />
+          <span class="pub-thumb-zoom" aria-hidden="true"><img src="img/plr.png" alt="" loading="lazy" /></span>
+        </a>
+        <div class="pub-body">
+          <div class="pub-title">PLR: Plackett-Luce for Reordering In-Context Learning Examples</div>
+          <div class="pub-authors"><span class="me">P. Batorski</span>, P. Swoboda</div>
+          <div class="pub-venue"><span class="venue-name">EACL</span> 🔥 · 2027</div>
+          <div class="pub-links">
+            <a class="pub-btn" href="https://arxiv.org/abs/2603.21373" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
+            <a class="pub-btn" href="https://github.com/Batorskq/PLR" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
+            <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
+          </div>
+          <div class="pub-abstract" hidden><p>In-context learning (ICL) adapts large language models by conditioning on a small set of ICL examples, avoiding costly parameter updates. Among other factors, performance is often highly sensitive to the ordering of the examples. However, exhaustive search over the <em>n</em>! possible orderings is infeasible. Therefore more efficient ordering methods use model confidence measures (e.g., label-probability entropy) over label sets or take a direct approach to finding the best ordering. We propose PLR, a probabilistic approach to in-context example ordering that replaces discrete ordering search with learning a probability distribution over orderings with the Plackett-Luce model. PLR models orderings using a Plackett-Luce distribution and iteratively updates its parameters to concentrate probability mass on high-performing orderings under a task-level metric. Candidate orderings are sampled efficiently via a Gumbel perturb-and-sort procedure. Experiments on multiple classification benchmarks show that PLR consistently improves few-shot accuracy for <em>k</em> ∈ {4, 8, 16, 32} examples, and we further demonstrate gains on mathematical reasoning tasks where label-based ordering methods are not applicable.</p></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <a class="pub-thumb" href="https://arxiv.org/abs/2511.21714" target="_blank" rel="noopener" aria-label="GPS: General Per-Sample Prompter – paper">
+          <img src="img/gps.jpg" alt="GPS: a single LLM prompt generator writes per-sample prompts for math, logic, programming, summarization, classification and simplification tasks" loading="lazy" />
+          <span class="pub-thumb-zoom" aria-hidden="true"><img src="img/gps.jpg" alt="" loading="lazy" /></span>
+        </a>
+        <div class="pub-body">
+          <div class="pub-title">GPS: General Per-Sample Prompter</div>
+          <div class="pub-authors"><span class="me">P. Batorski</span>, P. Swoboda</div>
+          <div class="pub-venue"><span class="venue-name">EACL</span> 🔥 · 2027</div>
+          <div class="pub-links">
+            <a class="pub-btn" href="https://arxiv.org/abs/2511.21714" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
+            <a class="pub-btn" href="https://github.com/Batorskq/GPS" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
+            <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
+          </div>
+          <div class="pub-abstract" hidden><p>LLMs are sensitive to prompting, with task performance often hinging on subtle, sometimes imperceptible variations in phrasing. As a result, crafting effective prompts manually remains challenging and time-consuming. Recent automatic prompting methods mitigate this difficulty but face three key limitations: (i) for each new task, they require large datasets to train good prompts; (ii) they rely on costly optimization loops that may take hours; (iii) they typically produce a single task-level prompt that does not adapt to the individual input problem to be solved. We propose GPS, the first general-purpose, per-sample prompting method. Without any task-specific tuning, GPS generates a tailored prompt for each unseen input, improving performance across diverse tasks. The prompter is trained with reinforcement learning on a suite of training tasks and includes a novel regularization for effectively adapting to per-sample prompting. Finally, we employ Minimum Bayes Risk decoding to stabilize inference. Empirically, GPS demonstrates competitive performance: we attain second best results among baselines on text simplification, third best results on summarization and on-par results on classification, while not training on any of these tasks, in contrast to the baselines. For in-domain prompting, we obtain sota on GSM8K. Our work shows the potential of a novel and effective paradigm for automatic prompting: generating adaptive, input-specific prompts without extensive optimization and without access to a task-specific training set.</p></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <a class="pub-thumb" href="https://arxiv.org/abs/2602.06248" target="_blank" rel="noopener" aria-label="REBEL: Hidden Knowledge Recovery via Evolutionary-Based Evaluation Loop – paper">
+          <img src="img/rebel.png" alt="REBEL loop: an LLM hacker writes jailbreak prompts for the unlearned model, an LLM judge scores the answers, and the top-K prompts seed the next round until the hidden answer leaks" loading="lazy" />
+          <span class="pub-thumb-zoom" aria-hidden="true"><img src="img/rebel.png" alt="" loading="lazy" /></span>
+        </a>
+        <div class="pub-body">
+          <div class="pub-title">REBEL: Hidden Knowledge Recovery via Evolutionary-Based Evaluation Loop</div>
+          <div class="pub-authors"><span class="me">P. Batorski</span>, P. Rybak, P. Swoboda, P. Spurek</div>
+          <div class="pub-venue"><span class="venue-name">EACL</span> 🔥 · 2027</div>
+          <div class="pub-links">
+            <a class="pub-btn" href="https://arxiv.org/abs/2602.06248" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
+            <a class="pub-btn" href="https://github.com/patryk-rybak/REBEL" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
+            <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
+          </div>
+          <div class="pub-abstract" hidden><p>Machine unlearning for LLMs aims to remove sensitive or copyrighted data from trained models. However, the true efficacy of current unlearning methods remains uncertain. Standard evaluation metrics rely on benign queries that often mistake superficial information suppression for genuine knowledge removal. Such metrics fail to detect residual knowledge that more sophisticated prompting strategies could still extract. We introduce REBEL, an evolutionary approach for adversarial prompt generation designed to probe whether unlearned data can still be recovered. Our experiments demonstrate that REBEL successfully elicits “forgotten” knowledge from models that seemed to be forgotten in standard unlearning benchmarks, revealing that current unlearning methods may provide only a superficial layer of protection. We validate our framework on subsets of the TOFU and WMDP benchmarks, evaluating performance across a diverse suite of unlearning algorithms. Our experiments show that REBEL consistently outperforms static baselines, recovering “forgotten” knowledge with Attack Success Rates (ASRs) reaching up to 60% on TOFU and 93% on WMDP.</p></div>
+        </div>
+      </div>
+
+      <div class="pub-card">
         <a class="pub-thumb" href="https://aclanthology.org/2026.findings-emnlp.6/" target="_blank" rel="noopener" aria-label="PRL: Prompts from Reinforcement Learning – paper">
           <img src="img/prl.png" alt="PRL: reinforcement-learning loop between a prompt generator, a prompt evaluator and a reward" loading="lazy" />
           <span class="pub-thumb-zoom" aria-hidden="true"><img src="img/prl.png" alt="" loading="lazy" /></span>
@@ -370,7 +424,6 @@
           <div class="pub-venue"><span class="venue-name">EMNLP</span> 🔥 · 2026</div>
           <div class="pub-links">
             <a class="pub-btn" href="https://aclanthology.org/2026.findings-emnlp.6/" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
-            <a class="pub-btn" href="https://arxiv.org/abs/2505.14412" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> arXiv</a>
             <a class="pub-btn" href="https://github.com/Batorskq/prl" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
             <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
           </div>
@@ -389,29 +442,10 @@
           <div class="pub-venue"><span class="venue-name">ACL</span> 🔥 · 2026</div>
           <div class="pub-links">
             <a class="pub-btn" href="https://aclanthology.org/2026.acl-long.515/" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
-            <a class="pub-btn" href="https://arxiv.org/abs/2512.11013" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> arXiv</a>
             <a class="pub-btn" href="https://github.com/Batorskq/PIAST" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
             <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
           </div>
           <div class="pub-abstract" hidden><p>LLMs are highly sensitive to prompt design, but handcrafting effective prompts is difficult and often requires intricate crafting of few-shot examples. We propose a fast automatic prompt construction algorithm that augments human instructions by generating a small set of few shot examples. Our method iteratively replaces/drops/keeps few-shot examples using Monte Carlo Shapley estimation of example utility. For faster execution, we use aggressive subsampling and a replay buffer for faster evaluations. Our method can be run using different compute time budgets. On a limited budget, we outperform existing automatic prompting methods on text simplification and GSM8K and obtain second best results on classification and summarization. With an extended, but still modest compute budget we set a new state of the art among automatic prompting methods on classification, simplification and GSM8K. Our results show that carefully constructed examples, rather than exhaustive instruction search, are the dominant lever for fast and data efficient prompt engineering.</p></div>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <a class="pub-thumb" href="https://arxiv.org/abs/2501.04424" target="_blank" rel="noopener" aria-label="NSA: Neuro-symbolic ARC Challenge – paper">
-          <img src="img/nsa.png" alt="NSA overview: a transformer proposes transformation primitives that a symbolic engine searches to solve an ARC task" loading="lazy" />
-          <span class="pub-thumb-zoom" aria-hidden="true"><img src="img/nsa.png" alt="" loading="lazy" /></span>
-        </a>
-        <div class="pub-body">
-          <div class="pub-title">NSA: Neuro-symbolic ARC Challenge</div>
-          <div class="pub-authors"><span class="me">P. Batorski</span>, J. Brinkmann, P. Swoboda</div>
-          <div class="pub-venue"><span class="venue-name">ESANN</span> · 2026</div>
-          <div class="pub-links">
-            <a class="pub-btn" href="https://arxiv.org/abs/2501.04424" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
-            <a class="pub-btn" href="https://github.com/Batorskq/NSA" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
-            <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
-          </div>
-          <div class="pub-abstract" hidden><p>The Abstraction and Reasoning Corpus (ARC) evaluates general reasoning capabilities that are difficult for both machine learning models and combinatorial search methods. We propose a neuro-symbolic approach that combines a transformer for proposal generation with combinatorial search using a domain-specific language. The transformer narrows the search space by proposing promising search directions, which allows the combinatorial search to find the actual solution in short time. We pre-train the transformer with synthetically generated data. During test-time we generate additional task-specific training tasks and fine-tune our model. Our results surpass comparable state of the art on the ARC evaluation set by 27% and compare favourably on the ARC train set. We make our code and dataset publicly available.</p></div>
         </div>
       </div>
 
@@ -426,7 +460,6 @@
           <div class="pub-venue"><span class="venue-name">Knowledge-Based Systems</span> · 2026</div>
           <div class="pub-links">
             <a class="pub-btn" href="https://doi.org/10.1016/j.knosys.2025.114861" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
-            <a class="pub-btn" href="https://arxiv.org/abs/2402.01524" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> arXiv</a>
             <a class="pub-btn" href="https://github.com/gmum/HyperPlanes" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
             <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
           </div>
@@ -435,26 +468,7 @@
       </div>
 
       <div class="pub-card">
-        <a class="pub-thumb" href="https://doi.org/10.1016/j.ins.2025.122261" target="_blank" rel="noopener" aria-label="HINT: Hypernetwork Approach to Training Weight Interval Regions in Continual Learning – paper">
-          <img src="img/hint.png" alt="HINT architecture: interval embeddings are propagated through a hypernetwork to produce interval weights of the target network" loading="lazy" />
-          <span class="pub-thumb-zoom" aria-hidden="true"><img src="img/hint.png" alt="" loading="lazy" /></span>
-        </a>
-        <div class="pub-body">
-          <div class="pub-title">HINT: Hypernetwork Approach to Training Weight Interval Regions in Continual Learning</div>
-          <div class="pub-authors">P. Krukowski, A. Bielawska, K. Książek, P. Wawrzyński, <span class="me">P. Batorski</span>, P. Spurek</div>
-          <div class="pub-venue"><span class="venue-name">Information Sciences</span> · 2025</div>
-          <div class="pub-links">
-            <a class="pub-btn" href="https://doi.org/10.1016/j.ins.2025.122261" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
-            <a class="pub-btn" href="https://arxiv.org/abs/2405.15444" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> arXiv</a>
-            <a class="pub-btn" href="https://github.com/gmum/HINT" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
-            <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
-          </div>
-          <div class="pub-abstract" hidden><p>Recently, a new Continual Learning (CL) paradigm was presented to control catastrophic forgetting, called Interval Continual Learning (InterContiNet), which relies on enforcing interval constraints on the neural network parameter space. Unfortunately, InterContiNet training is challenging due to the high dimensionality of the weight space, making intervals difficult to manage. To address this issue, we introduce HINT, a technique that employs interval arithmetic within the embedding space and utilizes a hypernetwork to map these intervals to the target network parameter space. We train interval embeddings for consecutive tasks and train a hypernetwork to transform these embeddings into weights of the target network. An embedding for a given task is trained along with the hypernetwork, preserving the response of the target network for the previous task embeddings. Interval arithmetic works with a more manageable, lower-dimensional embedding space rather than directly preparing intervals in a high-dimensional weight space. Our model allows faster and more efficient training. Furthermore, HINT maintains the guarantee of not forgetting. At the end of training, we can choose one universal embedding to produce a single network dedicated to all tasks. In such a framework, hypernetwork is used only for training and, finally, we can utilize one set of weights. HINT obtains significantly better results than InterContiNet and gives SOTA results on several benchmarks.</p></div>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <a class="pub-thumb" href="https://arxiv.org/abs/2206.09453" target="_blank" rel="noopener" aria-label="Bounding Evidence and Estimating Log-Likelihood in VAE – paper">
+        <a class="pub-thumb" href="https://proceedings.mlr.press/v206/struski23a.html" target="_blank" rel="noopener" aria-label="Bounding Evidence and Estimating Log-Likelihood in VAE – paper">
           <img src="img/vae.png" alt="Lower and upper bounds on the log-likelihood of VAE, IWAE-5 and IWAE-10 on MNIST converging as the number of samples grows" loading="lazy" />
           <span class="pub-thumb-zoom" aria-hidden="true"><img src="img/vae.png" alt="" loading="lazy" /></span>
         </a>
@@ -463,7 +477,7 @@
           <div class="pub-authors">Ł. Struski, M. Mazur, <span class="me">P. Batorski</span>, P. Spurek, J. Tabor</div>
           <div class="pub-venue"><span class="venue-name">AISTATS</span> 🔥 · 2023</div>
           <div class="pub-links">
-            <a class="pub-btn" href="https://arxiv.org/abs/2206.09453" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
+            <a class="pub-btn" href="https://proceedings.mlr.press/v206/struski23a.html" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15,3 21,3 21,9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Paper</a>
             <a class="pub-btn" href="https://github.com/gmum/Bounding_Evidence_Estimating_LL" target="_blank" rel="noopener"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16,18 22,12 16,6"/><polyline points="8,6 2,12 8,18"/></svg> Code</a>
             <button class="pub-btn pub-abs-toggle" type="button" aria-expanded="false"><svg class="chev" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,6 15,12 9,18"/></svg> Abstract</button>
           </div>
